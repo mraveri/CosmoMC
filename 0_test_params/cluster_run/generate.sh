@@ -34,7 +34,7 @@ cat <<EOF > $filename.sbatch
 #SBATCH --exclusive
 
 # prepare the environment:
-source ~/environment/cosmomc.sh
+source ~/environment/cosmomc_18.sh
 
 mpirun -np 8 ./cosmomc 0_test_params/parameters/$filename.ini
 
