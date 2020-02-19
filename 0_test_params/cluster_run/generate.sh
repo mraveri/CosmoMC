@@ -23,20 +23,20 @@ do
 cat <<EOF > $filename.sbatch
 #!/bin/bash
 #SBATCH --job-name=$filename
-#SBATCH --output=0_BAO_chains/$filename.out
-#SBATCH --error=0_BAO_chains/$filename.err
+#SBATCH --output=0_test_chains/$filename.out
+#SBATCH --error=0_test_chains/$filename.err
 #SBATCH --time=36:00:00
-#SBATCH --partition=kicp
-#SBATCH --account=kicp
+#SBATCH --partition=broadwl
+#SBATCH --account=pi-whu5
 #SBATCH --ntasks=8
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=8
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=4
 #SBATCH --exclusive
 
 # prepare the environment:
 source ~/environment/cosmomc.sh
 
-mpirun -np 8 ./cosmomc 0_BAO_params/parameters/$filename.ini
+mpirun -np 8 ./cosmomc 0_test_params/parameters/$filename.ini
 
 EOF
 
