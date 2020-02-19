@@ -233,16 +233,16 @@
                 if (CosmoSettings%cl_lmax(i,i)>0) then
                     if (any(Theory%cls(i,i)%Cl(:) < 0 )) then
                         error = 1
-                        call MpiStop('Calculator_CAMB: negative C_l (could edit to silent error here)')
-                        return
+                        !call MpiStop('Calculator_CAMB: negative C_l (could edit to silent error here)')
+                        !return
                     end if
                 end if
                 do j= i, 1, -1
                     if (CosmoSettings%cl_lmax(i,j)>0) then
                         if ( any(ieee_is_nan(Theory%cls(i,j)%Cl))) then
                             error=1
-                            write(*,*) 'WARNING: NaN CL?', i, j
-                            return
+                            !write(*,*) 'WARNING: NaN CL?', i, j
+                            !return
                         end if
                     end if
                 end do
@@ -311,7 +311,7 @@
         call this%SetPowersFromCAMB(CMB,Theory)
         if (any(Theory%cls(1,1)%Cl(:) < 0 )) then
             error = 1
-            call MpiStop('Calculator_CAMB: negative C_l (could edit to silent error here)')
+            !call MpiStop('Calculator_CAMB: negative C_l (could edit to silent error here)')
         end if
         do i=1, min(3,CosmoSettings%num_cls)
             if(error/=0) exit
@@ -319,7 +319,7 @@
                 if (CosmoSettings%cl_lmax(i,j)>0) then
                     if ( any(ieee_is_nan(Theory%cls(i,j)%Cl))) then
                         error=1
-                        write(*,*) 'WARNING: NaN CL?'
+                        !write(*,*) 'WARNING: NaN CL?'
                         exit
                     end if
                 end if
@@ -691,7 +691,7 @@
     integer, intent(in) :: n
     real(mcp), intent(IN) :: z(n)
     real(mcp), intent(out) :: arr(n)
-    !Note redshifts must be monotonically increasing    
+    !Note redshifts must be monotonically increasing
 
     call ComovingRadialDistanceArr(arr, z, n, 1d-4)
 

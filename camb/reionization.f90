@@ -50,7 +50,7 @@
 
     end type ReionizationHistory
 
-    real(dl), parameter :: Reionization_maxz = 50._dl
+    real(dl), parameter :: Reionization_maxz = 1000._dl
     real(dl), private, parameter :: Reionization_tol = 1d-5
 
     real(dl), private, external :: dtauda, rombint,rombint2
@@ -370,4 +370,3 @@
 
 
     end module Reionization
-
