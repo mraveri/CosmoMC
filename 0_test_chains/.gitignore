@@ -1,0 +1,6 @@
+*
+!.gitignore
+!*.covmat
+!*.minimum
+!*.minimum.inputparams
+!*.ranges
