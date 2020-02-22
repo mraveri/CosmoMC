@@ -25,11 +25,11 @@ do
 cat <<EOF > $OUT_FOLDER/$filename.ini
 
 # updated ranges:
-DEFAULT(5_SN_params/parameters_minimum_inputrange/$filename.minimizer_inputrange)
+DEFAULT(0_test_params/parameters_minimum_inputrange/$filename.minimizer_inputrange)
 
 # custom settings:
-DEFAULT(5_SN_params/common_parameters/minimizer.ini)
-DEFAULT(5_SN_params/parameters/$filename.ini)
+DEFAULT(0_test_params/common_parameters/minimizer.ini)
+DEFAULT(0_test_params/parameters/$filename.ini)
 
 EOF
 
